@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class ApiService {
+class MoviesApiService {
   final Dio _dio = Dio(BaseOptions(baseUrl: 'https://api.themoviedb.org/3/'));
 
   Future<Map<String, dynamic>> getMovies() async {
     try {
       final response = await _dio.get('movie/popular', queryParameters: {
-        'api_key': 'a40ce2fb87b05f9de06b4ae95ef0315a',
+        'api_key': dotenv.env['TMDB_API_KEY'],
       });
       return response.data;
     } catch (e) {
@@ -17,7 +18,7 @@ class ApiService {
   Future<Map<String, dynamic>> searchMovies(String query) async {
     try {
       final response = await _dio.get('search/movie', queryParameters: {
-        'api_key': 'a40ce2fb87b05f9de06b4ae95ef0315a',
+        'api_key': dotenv.env['TMDB_API_KEY'],
         'query': query,
       });
       return response.data;

@@ -10,9 +10,18 @@ class LocalDataSource {
 
   LocalDataSource({required this.prefs});
 
-  Future<void> saveFavoriteMovies(List<Movie> movies) async {
-    final favorites = movies.where((movie) => movie.isFavorite).toList();
-    final favoritesJson = favorites.map((movie) => movie.toJson()).toList();
+  Future<void> saveFavoriteMovies(List<Movie> newFavorites) async {
+    // Get the existing favorites
+    final existingFavorites = getFavoriteMovies();
+
+    // Combine existing favorites with new favorites
+    final updatedFavorites = [...existingFavorites, ...newFavorites];
+
+    // Remove duplicates (if any)
+    final uniqueFavorites = updatedFavorites.toSet().toList();
+
+    // Save the updated list
+    final favoritesJson = uniqueFavorites.map((movie) => movie.toJson()).toList();
     await prefs.setString('favorites', jsonEncode(favoritesJson));
   }
 
@@ -20,7 +29,8 @@ class LocalDataSource {
     final favoritesJson = prefs.getString('favorites');
     if (favoritesJson != null) {
       final List<dynamic> jsonList = jsonDecode(favoritesJson);
-      return jsonList.map((json) => Movie.fromJson(json)).toList();
+      final favorites = jsonList.map((json) => Movie.fromJson(json)).toList();
+      return favorites;
     }
     return [];
   }

@@ -17,7 +17,7 @@ Future<void> initDependencyInjection() async {
   sl.registerSingleton<SharedPreferences>(sharedPreferences);
 
   // Core
-  sl.registerLazySingleton<ApiService>(() => ApiService());
+  sl.registerLazySingleton<MoviesApiService>(() => MoviesApiService());
 
   // Data sources
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSource(prefs: sl()));
