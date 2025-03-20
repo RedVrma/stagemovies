@@ -1,12 +1,12 @@
 
-import 'package:stagemovies/data/datasources/LocalDataSource.dart';
+import 'package:stagemovies/data/datasources/local_data_source.dart';
 
-import '../../core/network/MoviesApiService.dart';
-import '../../domain/entities/Movie.dart';
-import '../../domain/repositories/MovieRepository.dart';
+import '../../core/network/movie_api_service.dart';
+import '../../domain/entities/movie.dart';
+import '../../domain/repositories/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
-  final MoviesApiService apiService;
+  final MovieApiService apiService;
   final LocalDataSource localDataSource;
 
   MovieRepositoryImpl({required this.apiService, required this.localDataSource});

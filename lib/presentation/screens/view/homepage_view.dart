@@ -10,6 +10,8 @@ import 'movie_detail_page.dart';
 class HomepageView extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController();
 
+  HomepageView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,8 +98,8 @@ class HomepageView extends StatelessWidget {
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
                                 colors: [
-                                  Colors.black.withOpacity(0.8),
-                                  Colors.black.withOpacity(0.0),
+                                  Colors.black.withValues(alpha: 0.8),
+                                  Colors.black.withValues(alpha: 0.0),
                                 ],
                               ),
                             ),
@@ -122,7 +124,7 @@ class HomepageView extends StatelessWidget {
                                   movie.overview,
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: Colors.white.withOpacity(0.8),
+                                    color: Colors.white.withValues(alpha: 0.8),
                                   ),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,

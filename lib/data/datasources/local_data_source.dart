@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../domain/entities/Movie.dart';
+import '../../domain/entities/movie.dart';
 
 
 class LocalDataSource {

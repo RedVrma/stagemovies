@@ -3,10 +3,10 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stagemovies/presentation/screens/cubit/homepage_cubit.dart';
 
-import '../../data/datasources/LocalDataSource.dart';
-import '../../data/repositories/MovieRepositoryImpl.dart';
-import '../../domain/repositories/MovieRepository.dart';
-import '../network/MoviesApiService.dart';
+import '../../data/datasources/local_data_source.dart';
+import '../../data/repositories/movie_repository_impl.dart';
+import '../../domain/repositories/movie_repository.dart';
+import '../network/movie_api_service.dart';
 
 
 final GetIt sl = GetIt.instance;
@@ -17,7 +17,7 @@ Future<void> initDependencyInjection() async {
   sl.registerSingleton<SharedPreferences>(sharedPreferences);
 
   // Core
-  sl.registerLazySingleton<MoviesApiService>(() => MoviesApiService());
+  sl.registerLazySingleton<MovieApiService>(() => MovieApiService());
 
   // Data sources
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSource(prefs: sl()));

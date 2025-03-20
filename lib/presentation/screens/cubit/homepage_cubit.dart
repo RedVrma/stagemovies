@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:stagemovies/presentation/widgets/error_handler.dart';
 
-import '../../../data/datasources/LocalDataSource.dart';
-import '../../../domain/entities/Movie.dart';
-import '../../../domain/repositories/MovieRepository.dart';
+import '../../../data/datasources/local_data_source.dart';
+import '../../../domain/entities/movie.dart';
+import '../../../domain/repositories/movie_repository.dart';
 
 part 'homepage_state.dart';
 

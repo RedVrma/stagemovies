@@ -1,15 +1,13 @@
 // lib/presentation/pages/movie_detail_page.dart
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stagemovies/presentation/screens/cubit/homepage_cubit.dart';
 
-import '../../../domain/entities/Movie.dart';
+import '../../../domain/entities/movie.dart';
 
 class MovieDetailPage extends StatelessWidget {
   final Movie movie;
 
-  const MovieDetailPage({required this.movie});
+  const MovieDetailPage({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {

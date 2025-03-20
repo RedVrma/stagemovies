@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class MoviesApiService {
+class MovieApiService {
   final Dio _dio = Dio(BaseOptions(baseUrl: 'https://api.themoviedb.org/3/'));
 
   Future<Map<String, dynamic>> getMovies() async {

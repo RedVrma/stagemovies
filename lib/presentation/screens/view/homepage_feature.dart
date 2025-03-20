@@ -7,6 +7,8 @@ import '../../../core/injection/service_locator.dart';
 
 
 class HomepageFeature extends StatelessWidget {
+  const HomepageFeature({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
