@@ -7,7 +7,7 @@ import 'package:stagemovies/presentation/screens/view/homepage_feature.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await initDependencyInjection();
+  await initDependencyInjection();//uses getit to inject the dependencies
   await dotenv.load(fileName: ".env");
 
   runApp(MyApp());
